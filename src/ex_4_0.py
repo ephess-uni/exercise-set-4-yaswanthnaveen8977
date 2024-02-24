@@ -18,6 +18,14 @@ def get_shutdown_events(logfile):
                     shutdown_events.append(line.strip())
 
         return shutdown_events
+        logfile_path = "data/messages.log"
+        shutdown_events = get_shutdown_events(logfile_path)
+
+        if shutdown_events:
+            for event in shutdown_events:
+                print(event)
+        else:
+            print("No shutdown events found.")
 
 
 # >>>> The code below will call your function and print the results
