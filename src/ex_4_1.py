@@ -12,15 +12,13 @@ except ImportError:
 FILENAME = get_data_file_path('messages.log')
 # >>>> DO NOT MODIFY CODE ABOVE <<<<
 
-
 def num_shutdowns(logfile):
     shutdown_events = get_shutdown_events(logfile)
     return len(shutdown_events) // 2  # Each shutdown event has two entries
 
 
 # Example usage:
-logfile_path = "data/messages.log"
-shutdown_count = num_shutdowns(logfile_path)
+shutdown_count = num_shutdowns(FILENAME)
 print(f"Number of shutdowns: {shutdown_count}")
 
 # >>>> The code below will call your function and print the results
