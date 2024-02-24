@@ -14,27 +14,22 @@ except ImportError:
 FILENAME = get_data_file_path("messages.log")
 # >>>> DO NOT MODIFY CODE ABOVE <<<<
 
-
 def time_between_shutdowns(logfile):
-        if len(shutdown_events) < 2:
-            raise ValueError("There should be at least two shutdown events to calculate time difference.")
+    shutdown_events = get_shutdown_events(logfile)
 
-        # Convert the date fields to datetime objects
-        first_shutdown_datetime = logstamp_to_datetime(shutdown_events[0])
-        last_shutdown_datetime = logstamp_to_datetime(shutdown_events[-1])
+    if len(shutdown_events) < 2:
+        raise ValueError("There should be at least two shutdown events to calculate time difference.")
 
-        # Calculate the time difference
-        time_difference = last_shutdown_datetime - first_shutdown_datetime
+    # Convert the date fields to datetime objects
+    first_shutdown_datetime = logstamp_to_datetime(shutdown_events[0])
+    last_shutdown_datetime = logstamp_to_datetime(shutdown_events[-1])
 
-        return time_difference
+    # Calculate the time difference
+    time_difference = last_shutdown_datetime - first_shutdown_datetime
 
-    # Example usage:
-    if __name__ == "__main__":
-        logfile_path = "data/messages.log"  # Replace with the actual path to your log file
-        time_difference = time_between_shutdowns(logfile_path)
-        print(f"Time between first and last shutdowns: {time_difference}")
+    return time_difference
 
-
-# >>>> The code below will call your function and print the results
+# Example usage:
 if __name__ == "__main__":
-    print(f'{time_between_shutdowns(FILENAME)=}')
+    time_difference = time_between_shutdowns(FILENAME)
+    print(f"Time between first and last shutdowns: {time_difference}")
