@@ -16,11 +16,6 @@ def num_shutdowns(logfile):
     shutdown_events = get_shutdown_events(logfile)
     return len(shutdown_events) // 2  # Each shutdown event has two entries
 
-
-# Example usage:
-shutdown_count = num_shutdowns(FILENAME)
-print(f"Number of shutdowns: {shutdown_count}")
-
 # >>>> The code below will call your function and print the results
 if __name__ == "__main__":
     print(f'{num_shutdowns(FILENAME)=}')
