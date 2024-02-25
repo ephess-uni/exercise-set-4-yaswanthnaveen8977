@@ -12,11 +12,14 @@ except ImportError:
 FILENAME = get_data_file_path('messages.log')
 # >>>> DO NOT MODIFY CODE ABOVE <<<<
 
+
 def num_shutdowns(logfile):
-    shutdown_events = get_shutdown_events(logfile)
-    return len(shutdown_events) // 2  # Each shutdown event has two entries
+    """
+    Your docstring here.  Replace the pass keyword below with your implementation.
+    """
+    return len(get_shutdown_events(logfile))
+
 
 # >>>> The code below will call your function and print the results
-if __name__ == "__main__":
+if _name_ == "_main_":
     print(f'{num_shutdowns(FILENAME)=}')
-    
