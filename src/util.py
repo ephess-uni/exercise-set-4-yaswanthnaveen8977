@@ -1,5 +1,4 @@
-from os import path
-
+import os
 
 def get_data_file_path(file_name: str) -> str:
     """
@@ -18,9 +17,9 @@ def get_data_file_path(file_name: str) -> str:
         The absolute path to the desired file if the file exists. Raises FileNotFound
         error otherwise.
     """
-    root_directory, _ = path.split(_file_)
-    full_path = path.abspath(
-        path.join(
+    root_directory, _ = os.path.split(__file__)
+    full_path = os.path.abspath(
+        os.path.join(
             root_directory,
             '..',
             'data',
@@ -28,7 +27,7 @@ def get_data_file_path(file_name: str) -> str:
         )
     )
 
-    if not path.exists(full_path):
+    if not os.path.exists(full_path):
         raise FileNotFoundError(f'Filename {file_name} not found in {root_directory}')
 
     return full_path
