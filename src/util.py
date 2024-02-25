@@ -18,7 +18,7 @@ def get_data_file_path(file_name: str) -> str:
         The absolute path to the desired file if the file exists. Raises FileNotFound
         error otherwise.
     """
-    root_directory, _ = path.split(__file__)
+    root_directory, _ = path.split(_file_)
     full_path = path.abspath(
         path.join(
             root_directory,
